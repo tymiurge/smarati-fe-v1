@@ -1,6 +1,11 @@
 import * as container from './container'
+import * as intends from './intends'
 
-export { container }
+export { 
+  container,
+  intends
+}
+
 /**
  * composes styles objects int a single one
  * @param {array} styles 

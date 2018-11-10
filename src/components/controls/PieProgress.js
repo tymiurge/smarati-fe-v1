@@ -6,22 +6,14 @@ export default ({progress, width}) => {
   return (
     <div style={{width: _width, height: _width}}>
       <PieChart
-        data={[
-          { title: 'One', value: 13.4, color: progress <= 0 ? '#20bf6b' : '#d1d8e0'},
-          { title: 'd1', value: 2.2, color: '#fff' },
-          { title: 'Two', value: 13.4, color: progress <= 1 ? '#20bf6b' : '#d1d8e0' },
-          { title: 'd2', value: 2.2, color: '#fff' },
-          { title: 'Three', value: 13.4, color: progress <= 2 ? '#20bf6b' : '#d1d8e0' },
-          { title: 'd3', value: 2.2, color: '#fff' },
-          { title: 'One1', value: 13.4, color: progress <= 3 ? '#20bf6b' : '#d1d8e0' },
-          { title: 'd4', value: 2.2, color: '#fff' },
-          { title: 'Two1', value: 13.4, color: progress <= 4 ? '#20bf6b' : '#d1d8e0' },
-          { title: 'd5', value: 2.2, color: '#fff' },
-          { title: 'Three1', value: 13.4, color: progress <= 5 ? '#20bf6b' : '#d1d8e0' },
-          { title: 'd5', value: 2.2, color: '#fff' },
-          { title: 'Three123', value: 13.4, color: progress <= 6 ? '#20bf6b' : '#d1d8e0' },
-          { title: 'd235', value: 2.2, color: '#fff' },
-        ]}
+        data={
+          [...new Array(14)].map((_, key) => {
+            if (key % 2 === 0) {
+              return { title: key, value: 20, color: progress <= key ? '#20bf6b' : '#d1d8e0'}
+            }
+            return { title: key, value: 2, color: '#fff' }
+          }
+        )}
       />
     </div>
   )

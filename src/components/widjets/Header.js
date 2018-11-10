@@ -1,6 +1,6 @@
 import React from 'react'
 //import PropTypes from 'prop-types'
-import { Menu, Icon, Breadcrumb } from 'semantic-ui-react'
+import { Menu, Container } from 'semantic-ui-react'
 
 class Header extends React.Component {
 /*
@@ -13,6 +13,7 @@ class Header extends React.Component {
   render() {
     return (
       <Menu borderless style={{marginBottom: 0}}>
+        <Container>
         {
           [
             {name: 'Cards Collection', icon: 'database', route: '/cards'},
@@ -24,6 +25,7 @@ class Header extends React.Component {
             />
           ))
         }
+        </Container>
       </Menu>      
     )
   }

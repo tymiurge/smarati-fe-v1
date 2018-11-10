@@ -1,7 +1,9 @@
 import PieProgress from './PieProgress'
+import ViewsPath from './ViewsPath'
 
 const controls = {
-  PieProgress
+  PieProgress,
+  ViewsPath
 }
 
 export { controls }

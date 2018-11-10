@@ -18,22 +18,30 @@ const localStyles = {
   }
 }
 
-const _Skin = props => (
-  <Segment compact style={localStyles.cardContr}>
-    <div style={composeStyles(container.flexRow, localStyles.cardFlexContr)}>
-      { props.visualization }
-      <div style={composeStyles(container.flexColumn, localStyles.cardDetails)}>
-        <div><Header as='h5'>{props.value}</Header></div>
-        <div 
-          style={composeStyles(container.cutText, localStyles.tagsContr)}
-        >
-          {
-            props.tags.map(tag => (<Label color={props.tagColor} key={tag} size='mini'>{tag}</Label>))
-          }
+const _Skin = props => { 
+  const _skinStyle = props.skinStyle || {}
+  return (
+    <Segment
+      compact 
+      style={composeStyles(_skinStyle, localStyles.cardContr)} 
+      onClick={props.onClick}
+      className={'cursor-pointer'}
+    >
+      <div style={composeStyles(container.flexRow, localStyles.cardFlexContr)}>
+        { props.visualization }
+        <div style={composeStyles(container.flexColumn, localStyles.cardDetails)}>
+          <div><Header as='h5'>{props.value}</Header></div>
+          <div 
+            style={composeStyles(container.cutText, localStyles.tagsContr)}
+          >
+            {
+              props.tags.map(tag => (<Label color={props.tagColor} key={tag} size='mini'>{tag}</Label>))
+            }
+          </div>
         </div>
       </div>
-    </div>
-  </Segment>
-)
+    </Segment>
+  )
+}
 
 export default _Skin

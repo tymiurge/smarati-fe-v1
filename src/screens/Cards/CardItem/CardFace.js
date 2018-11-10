@@ -6,7 +6,8 @@ import PropTypes from 'prop-types'
 const propTypes = {
   value: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
-  progress: PropTypes.number.isRequired
+  progress: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
 const CardFace = props => (

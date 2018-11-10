@@ -11,3 +11,8 @@ export const flexRow = {
 export const flexColumn = {
   display: 'flex', flexDirection: 'column'
 }
+
+export const yScrollable = {
+  overflowX: 'hidden',
+  overflowY: 'auto'
+}

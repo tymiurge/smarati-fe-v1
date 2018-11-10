@@ -6,3 +6,7 @@ export const noLeft = {
 export const noRightPadding = {
   paddingRight: 0
 }
+
+export const noMarginBottom = {
+  marginBottom: 0
+}

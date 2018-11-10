@@ -1,6 +1,5 @@
 import React from 'react'
 import { Segment, Header, Label } from 'semantic-ui-react'
-import { controls } from 'components'
 import { container, composeStyles } from 'styles'
 
 const localStyles = {
@@ -8,7 +7,7 @@ const localStyles = {
     width: '157px'
   },
   cardContr: {
-    padding: '4px 8px', width: '200px', marginTop: '0'
+    padding: '4px 8px', width: '200px', marginTop: '0', marginBottom: '0'
   },
   cardFlexContr: {
     height: '55px'  
@@ -23,7 +22,7 @@ const _Skin = props => {
   return (
     <Segment
       compact 
-      style={composeStyles(_skinStyle, localStyles.cardContr)} 
+      style={composeStyles(localStyles.cardContr, _skinStyle)} 
       onClick={props.onClick}
       className={'cursor-pointer'}
     >

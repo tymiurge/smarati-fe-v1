@@ -1,7 +1,8 @@
 import React from 'react'
 import { Icon } from 'semantic-ui-react'
-import _Skin from './_Skin'
+import Skin from './_Skin'
 import PropTypes from 'prop-types'
+import { composeStyles } from 'styles'
 
 const localStyles = {
   iconBox: {width: '35px', height: '35px'},
@@ -14,13 +15,18 @@ const localStyles = {
 const propTypes = {
   value: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  skinStyle: PropTypes.object
+}
+
+const defaultProps = {
+  skinStyle: {}
 }
 
 const CardBox = props => (
-  <_Skin 
+  <Skin 
     {...props} 
-    skinStyle={localStyles.skinStyle}
+    skinStyle={composeStyles(localStyles.skinStyle, props.skinStyle)}
     visualization={(
       <div style={localStyles.iconBox}>
         <Icon name='folder' style={localStyles.icon} size='big' color='blue'/>
@@ -31,5 +37,6 @@ const CardBox = props => (
 )
 
 CardBox.propTypes = propTypes
+CardBox.defaultProps = defaultProps
 
 export default CardBox

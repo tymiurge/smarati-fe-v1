@@ -3,8 +3,8 @@ import { Menu, Icon } from 'semantic-ui-react'
 import { controls } from 'components'
 import { intends } from 'styles'
 
-const StaticMode = props => (
-  <Menu secondary style={{marginBottom: '0'}}>
+const StaticMode = () => (
+  <Menu secondary style={intends.noMarginBottom}>
     <Menu.Item style={intends.noRightPadding}>
       <Icon circular name='plus' />
       <Icon circular name='search' />

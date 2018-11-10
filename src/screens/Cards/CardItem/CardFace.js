@@ -1,17 +1,22 @@
 import React from 'react'
 import { controls } from 'components'
-import _Skin from './_Skin.js'
+import Skin from './_Skin.js'
 import PropTypes from 'prop-types'
 
 const propTypes = {
   value: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
   progress: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  skinStyle: PropTypes.object
+}
+
+const defaultProps = {
+  skinStyle: {}
 }
 
 const CardFace = props => (
-  <_Skin 
+  <Skin 
     {...props} 
     visualization={<controls.PieProgress progress={props.progress} width={35}/>} 
     tagColor='green' 
@@ -19,5 +24,6 @@ const CardFace = props => (
 )
 
 CardFace.propTypes = propTypes
+CardFace.defaultProps = defaultProps
 
 export default CardFace

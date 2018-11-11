@@ -1,32 +1,22 @@
 import React from 'react'
-import { Form, Message, Segment } from 'semantic-ui-react'
-import { intends } from 'styles'
+import { Message, Segment } from 'semantic-ui-react'
 import BoxWizard from './BoxWizard'
 import CardWizard from './CardWizard'
+import { controls } from 'components'
+
 
 export default () => (
   <div>
     <Message
       attached
       content={(
-        <Form >
-          <Form.Group inline style={intends.noMarginBottom}>
-          <label>Select Wizard Type: </label>
-          <Form.Radio
-            label='Box'
-            value='sm'
-            checked={true}
-            //onChange={this.handleChange}
-          />
-          <Form.Radio
-            label='Card'
-            value='md'
-            checked={false}
-            //onChange={this.handleChange}
-          />
-          </Form.Group>
-
-        </Form>
+        <controls.ChoiseSwitch 
+          title='Select Wizard Type:' onSwitch={item => alert(item.title)}
+          options={[
+            {title: 'Box'},
+            {title: 'Card'}
+          ]}
+        />
       )}
     />
     <Segment attached='bottom'>

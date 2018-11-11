@@ -1,3 +1,4 @@
 import CardWizard from './CardWizard'
+import BoxWizard from './BoxWizard'
 
-export default CardWizard
+export { CardWizard, BoxWizard }

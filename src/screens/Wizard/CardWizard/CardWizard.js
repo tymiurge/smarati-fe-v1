@@ -4,21 +4,33 @@ import CardsFromTextWizard from './CardsFromTextWizard'
 import { controls } from 'components'
 
 class CardWizard extends React.Component {
+
+  state = {
+    mode: undefined
+  }
+
+  setMode = mode => this.setState({...this.state, mode})
+
   render() {
     return (
       <div>
-
         <controls.ChoiseSwitch 
-          onSwitch={item => alert(item.title)}
+          onSwitch={item => this.setMode(item.mode)}
           options={[
-            {title: 'Single Card'},
-            {title: 'Cards From Text'}
+            {title: 'Single Card', mode: 'singleCard'},
+            {title: 'Cards From Text', mode: 'textCards'}
           ]}
         />
-      
-        { false && <SingleCardWizard /> }
-        <CardsFromTextWizard />
-
+        <div style={{marginTop: '10px'}}>
+        {
+          this.state !== undefined && this.state.mode === 'singleCard' &&
+          <SingleCardWizard />
+        }
+        {
+          this.state !== undefined && this.state.mode === 'textCards' &&
+          <CardsFromTextWizard />
+        }
+        </div>
       </div>
     )
   }

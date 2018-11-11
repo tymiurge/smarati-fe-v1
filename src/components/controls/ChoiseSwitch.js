@@ -2,7 +2,6 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import { intends } from 'styles'
-import { arrays } from 'utils'
 
 class ChoiseSwitch extends React.Component {
 
@@ -13,7 +12,7 @@ class ChoiseSwitch extends React.Component {
   }
 
   state = {
-    selected: arrays.last(this.props.options).title
+    selected: this.props.options[0].title
   }
 
   handleChange = (e, { value }) => {
@@ -22,6 +21,10 @@ class ChoiseSwitch extends React.Component {
       {...this.state, selected: selectedChoise.title},
       () => this.props.onSwitch(selectedChoise)
     )
+  }
+
+  componentDidMount() {
+    this.props.onSwitch(this.props.options[0])
   }
 
   render() {
@@ -38,7 +41,7 @@ class ChoiseSwitch extends React.Component {
                 key={`choise+${idx}`}
                 label={choise.title}
                 value={idx}
-                checked={this.state.selected === choise.idx}
+                checked={this.state.selected === choise.title}
                 onChange={this.handleChange}
               />    
             ))

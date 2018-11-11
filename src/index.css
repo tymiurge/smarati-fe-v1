@@ -16,3 +16,7 @@ code {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.error-state input, .error-state div {
+  border-color: rgb(255, 40, 0) !important;
+}

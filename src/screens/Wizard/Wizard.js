@@ -41,7 +41,7 @@ class Wizard extends React.Component {
               <Segment attached='bottom'>
                 {
                   this.state.mode === 'box' &&
-                  <BoxWizard />
+                  <BoxWizard onConfirm={({type, data}) => console.log(`type = ${type}, name = ${data.name}, tags = ${data.tags.join()}`)}/>
                 }
                 {
                   this.state.mode === 'card' &&

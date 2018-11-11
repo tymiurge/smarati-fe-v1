@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Input, Segment } from 'semantic-ui-react'
 import Tag from './Tag'
 
-const _Container = ({segment, children}) => {
+const InternalContainer = ({segment, children}) => {
   if (segment) {
     return (
       <Segment>{ children }</Segment>
@@ -27,7 +27,6 @@ class TagsInput extends React.Component {
     onTagAdd: () => {},
     onTagRemove: () => {},
     tags: [],
-    placeholder: '',
     asSegment: false
   }
 
@@ -69,7 +68,7 @@ class TagsInput extends React.Component {
 
   render () {
     return (
-      <_Container segment={this.props.asSegment}>
+      <InternalContainer segment={this.props.asSegment}>
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {
             this.state.tags.map((tag, idx) => {
@@ -85,7 +84,7 @@ class TagsInput extends React.Component {
             onKeyPress={this.catchTagSubmit}
           />
         </div>
-      </_Container>
+      </InternalContainer>
     )
   }
 }

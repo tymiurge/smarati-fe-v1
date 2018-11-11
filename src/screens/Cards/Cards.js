@@ -2,14 +2,9 @@ import React from 'react'
 import { widjets } from 'components'
 import { Container } from 'semantic-ui-react'
 import Toolbar from './Toolbar'
-import { container, composeStyles } from 'styles'
 import List from './_List'
 import { layouting } from 'components'
 import Wizard from './Wizard'
-
-const localStyles = {
-  cardsContainer: {paddingLeft: '10px', paddingRight: '10px'}
-}
 
 const Main = props => (
   <layouting.HeightColumn

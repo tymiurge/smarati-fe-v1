@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Message, Segment } from 'semantic-ui-react'
 import { intends } from 'styles'
 import BoxWizard from './BoxWizard'
+import CardWizard from './CardWizard'
 
 export default () => (
   <div>
@@ -29,7 +30,8 @@ export default () => (
       )}
     />
     <Segment attached='bottom'>
-      <BoxWizard />
+      { false && <BoxWizard /> }
+      <CardWizard />
     </Segment>
   </div>
 )

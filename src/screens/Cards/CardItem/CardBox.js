@@ -8,7 +8,7 @@ const localStyles = {
   iconBox: {width: '35px', height: '35px'},
   icon: {marginTop: '3px'},
   skinStyle: {
-    backgroundColor: '#fffdd0'
+    backgroundColor: '#f7f1e3'
   }
 }
 

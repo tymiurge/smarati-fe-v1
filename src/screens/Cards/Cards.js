@@ -5,6 +5,7 @@ import Toolbar from './Toolbar'
 import { container, composeStyles } from 'styles'
 import List from './_List'
 import { layouting } from 'components'
+import Wizard from './Wizard'
 
 const localStyles = {
   cardsContainer: {paddingLeft: '10px', paddingRight: '10px'}
@@ -26,10 +27,16 @@ const Main = props => (
   />
 )
 
+const Main1 = props => (
+  <Container>
+    <Wizard />
+  </Container>
+)
+
 export default () => (
   <layouting.FullSizePage
     header={<widjets.Header />}
-    main={<Main />}
+    main={<Main1 />}
     leftAsideWidth='0%'
     rightAsideWidth='0%'
     mainScrollable={false}

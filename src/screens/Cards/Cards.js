@@ -4,7 +4,6 @@ import { Container } from 'semantic-ui-react'
 import Toolbar from './Toolbar'
 import List from './_List'
 import { layouting } from 'components'
-import Wizard from './Wizard'
 
 const Main = props => (
   <layouting.HeightColumn
@@ -22,16 +21,11 @@ const Main = props => (
   />
 )
 
-const Main1 = props => (
-  <Container>
-    <Wizard />
-  </Container>
-)
 
 export default () => (
   <layouting.FullSizePage
     header={<widjets.Header />}
-    main={<Main1 />}
+    main={<Main />}
     leftAsideWidth='0%'
     rightAsideWidth='0%'
     mainScrollable={false}

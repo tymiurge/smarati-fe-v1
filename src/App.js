@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Cards } from './screens'
+import { Cards, Wizard } from './screens'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Cards />
+        { false && <Cards /> }
+        <Wizard />
       </div>
     );
   }

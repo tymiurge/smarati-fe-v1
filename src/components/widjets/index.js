@@ -1,7 +1,9 @@
 import Header from './Header'
+import TitledHeader from './TitledHeader'
 
 const widjets = {
-  Header
+  Header,
+  TitledHeader
 }
 
 export { widjets }

@@ -68,8 +68,8 @@ class TagsInput extends React.Component {
     this.setState(
       Object.assign({}, this.state, { tags: newTags }),
       () => {
-        this.props.onTagRemove(tag, this.state.newTags)
-        this.props.onChange(this.state.newTags)
+        this.props.onTagRemove(tag, this.state.tags)
+        this.props.onChange(this.state.tags)
       }
     )
   }

@@ -24,7 +24,7 @@ class CardWizard extends React.Component {
         <div style={{marginTop: '10px'}}>
         {
           this.state !== undefined && this.state.mode === 'singleCard' &&
-          <SingleCardWizard />
+          <SingleCardWizard {...this.props}/>
         }
         {
           this.state !== undefined && this.state.mode === 'textCards' &&

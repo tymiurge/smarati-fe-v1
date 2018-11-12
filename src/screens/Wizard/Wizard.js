@@ -46,7 +46,9 @@ class Wizard extends React.Component {
                 {
                   this.state.mode === 'card' &&
                   <CardWizard
-                    onConfirm={({type, data}) => console.log(`type = ${type}`)}
+                    onConfirm={({type, data}) => {
+                      console.log(`type = ${type}`)
+                    }}
                   />
                 }
               </Segment>

@@ -28,7 +28,7 @@ class CardWizard extends React.Component {
         }
         {
           this.state !== undefined && this.state.mode === 'textCards' &&
-          <CardsFromTextWizard />
+          <CardsFromTextWizard {...this.props}/>
         }
         </div>
       </div>

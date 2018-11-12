@@ -1,9 +1,11 @@
 import Header from './Header'
 import TitledHeader from './TitledHeader'
+import ViewsSwitcher from './ViewsSwitcher'
 
 const widjets = {
   Header,
-  TitledHeader
+  TitledHeader,
+  ViewsSwitcher
 }
 
 export { widjets }

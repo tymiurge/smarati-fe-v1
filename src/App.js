@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
-import { Cards, Wizard } from './screens'
+import { Cards, Wizard, Programs } from './screens'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        { false && <Cards /> }
-        <Wizard />
-      </div>
-    );
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Cards} />
+          <Route exact path="/wizard" component={Wizard} />
+          <Route path="/cards" component={Cards} />
+          <Route path="/programs" component={Programs} />
+        </Switch>
+      </BrowserRouter>
+    )
   }
 }
 

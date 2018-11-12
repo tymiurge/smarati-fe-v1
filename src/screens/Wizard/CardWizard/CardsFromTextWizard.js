@@ -9,8 +9,7 @@ class CardsFromTextWizard extends React.Component {
     {
       error: 'Text should not be empty',
       rule: value => value !== ''
-    }
-    ,
+    },
     {
       error: 'There must be one semicolon in each line',
       rule: value => validation.inTextToCardsFormat(value)

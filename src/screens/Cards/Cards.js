@@ -24,7 +24,7 @@ const Main = props => (
 
 export default () => (
   <layouting.FullSizePage
-    header={<widjets.Header />}
+    header={<widjets.Header selectedIdx={0} />}
     main={<Main />}
     leftAsideWidth='0%'
     rightAsideWidth='0%'

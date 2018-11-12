@@ -16,3 +16,8 @@ export const yScrollable = {
   overflowX: 'hidden',
   overflowY: 'auto'
 }
+
+export const bordered = {
+  border: '1px solid rgba(34,36,38,.15)',
+  borderRadius: '.28571429rem'
+}

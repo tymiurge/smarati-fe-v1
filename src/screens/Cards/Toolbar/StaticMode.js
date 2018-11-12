@@ -4,7 +4,7 @@ import { controls } from 'components'
 import { intends } from 'styles'
 
 const StaticMode = () => (
-  <Menu secondary style={intends.noMarginBottom}>
+  <Menu secondary style={intends.noMarginBottom} size='tiny'>
     <Menu.Item style={intends.noRightPadding}>
       <Icon circular name='plus' />
       <Icon circular name='search' />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import { controls } from 'components'
 import PropTypes from 'prop-types'
 
@@ -55,13 +55,9 @@ class BoxWizard extends React.Component {
           placeholder='type tag and press Enter'
           onChange={tags => this.onFieldChange('tags', tags)}
         />
-        <div>
-          <Button 
-            circular icon='check' color='blue' size='mini'
-            onClick={this.onConfirm}
-          />
-          <Button size='mini' circular icon='cancel' color='red'  />
-        </div>
+        <controls.YesNoButtons
+          onYesClick={this.onConfirm}
+        />
       </div>
     )
   }

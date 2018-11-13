@@ -2,15 +2,35 @@ import React from 'react'
 import { Icon } from 'semantic-ui-react'
 import Skin from './_Skin'
 import PropTypes from 'prop-types'
-import { composeStyles } from 'styles'
+import { container, composeStyles } from 'styles'
+import { Header, Label } from 'semantic-ui-react'
 
 const localStyles = {
   iconBox: {width: '35px', height: '35px'},
   icon: {marginTop: '3px'},
   skinStyle: {
     backgroundColor: '#f7f1e3'
-  }
+  },
+  cardDetails: {
+    marginLeft: '8px'
+  },
+  tagsContr: {
+    width: '157px'
+  },
 }
+
+const Details = props => (
+  <div style={composeStyles(container.flexColumn, localStyles.cardDetails)}>
+    <div><Header as='h5'>{props.name}</Header></div>
+    <div 
+      style={composeStyles(container.cutText, localStyles.tagsContr)}
+    >
+      {
+        props.tags.map(tag => (<Label color='blue' key={tag} size='mini'>{tag}</Label>))
+      }
+    </div>
+  </div>
+)
 
 const propTypes = {
   value: PropTypes.string.isRequired,
@@ -32,6 +52,7 @@ const CardBox = props => (
         <Icon name='folder' style={localStyles.icon} size='big' color='blue'/>
       </div>
     )}
+    details={<Details {...props} />}
     tagColor='blue'
   />
 )

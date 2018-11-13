@@ -4,6 +4,7 @@ import TagsInput from './TagsInput'
 import ChoiseSwitch from './ChoiseSwitch'
 import ValidatedInput from './ValidatedInput'
 import YesNoButtons from './YesNoButtons'
+import DashedProgress from './DashedProgress'
 
 const controls = {
   PieProgress,
@@ -11,7 +12,8 @@ const controls = {
   TagsInput,
   ChoiseSwitch,
   ValidatedInput,
-  YesNoButtons
+  YesNoButtons,
+  DashedProgress
 }
 
 export { controls }

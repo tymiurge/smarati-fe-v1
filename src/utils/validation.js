@@ -19,10 +19,24 @@ const validateAgainstArr = (value, validators) => validators.reduce(
   true
 )
 
+const strIsNotEmpty = str => str !== ''
+
+/**
+ * checks whether the given str is in email format; if so - true returned, false - otherwise
+ * @param {string} str 
+ */
+const strIsEmail = str => {
+  const re = /^(([^<>()[\].,;:\s@"]+(.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+.)+[^<>()[\].,;:\s@"]{2,})$/i
+  return re.test(String(str).toLowerCase())
+}
+
+
+
 const validation = {
   validateAgainstArr,
-  inTextToCardsFormat
-
+  inTextToCardsFormat,
+  strIsNotEmpty,
+  strIsEmail
 }
 
 export default validation

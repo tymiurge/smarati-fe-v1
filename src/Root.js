@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Cards, Wizard, Programs, ProgramRun, Login } from './screens'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'

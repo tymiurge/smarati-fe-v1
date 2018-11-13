@@ -4,6 +4,7 @@ import { Container } from 'semantic-ui-react'
 import Toolbar from './Toolbar'
 import List from './_List'
 import { layouting } from 'components'
+import PropTypes from 'prop-types'
 
 const Main = props => (
   <layouting.HeightColumn
@@ -15,19 +16,35 @@ const Main = props => (
     )}
     main={(
       <Container style={{marginTop: 0}}>
-        <List />
+        <List {...props} />
       </Container> 
     )}
   />
 )
 
+class Cards extends React.Component {
 
-export default () => (
-  <layouting.FullSizePage
-    header={<widjets.Header selectedIdx={0} />}
-    main={<Main />}
-    leftAsideWidth='0%'
-    rightAsideWidth='0%'
-    mainScrollable={false}
-  />
-)
+  static propTypes = {
+    list: PropTypes.array.isRequired,
+    onLoad: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    this.props.onLoad()
+  }
+
+  render() {
+    if (!this.props.list) return (<div/>)
+    return (
+      <layouting.FullSizePage
+        header={<widjets.Header selectedIdx={0} />}
+        main={<Main {...this.props}/>}
+        leftAsideWidth='0%'
+        rightAsideWidth='0%'
+        mainScrollable={false}
+      />
+    )
+  }
+}
+
+export default Cards

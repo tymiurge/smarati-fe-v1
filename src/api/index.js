@@ -1,3 +1,7 @@
+import {
+  cards
+} from './data'
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 export const loginUser = data => delay(10).then(
@@ -23,4 +27,15 @@ export const loginUser = data => delay(10).then(
       }
     }
   }
+)
+
+export const fetchCards = data => delay(19).then(
+  () => ({
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      list: cards
+    }
+  })
 )

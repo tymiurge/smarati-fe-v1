@@ -30,7 +30,7 @@ class ProgramRun extends React.Component {
             <Form size='large'>
               <Segment.Group>
                 <Segment style={{padding: '0px', borderRadius: '0'}}>
-                  <div style={{height: '5px', backgroundColor: 'green'}}></div>
+                  <controls.DashedProgress progress={4} />
                 </Segment>
               <Segment>
                 <div style={{height:'150px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>

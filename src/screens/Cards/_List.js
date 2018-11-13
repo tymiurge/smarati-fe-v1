@@ -8,7 +8,8 @@ const localStyles = {
     marginRight: '5px'
   },
   cardsContainer: {
-    padding: '5px'
+    paddingTop: '5px',
+    
   }
 }
 

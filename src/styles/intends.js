@@ -10,3 +10,7 @@ export const noRightPadding = {
 export const noMarginBottom = {
   marginBottom: 0
 }
+
+export const noMarginTop = {
+  marginTop: 0
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Menu, Icon } from 'semantic-ui-react'
 import { controls } from 'components'
-import { intends } from 'styles'
+import { intends, container, composeStyles } from 'styles'
 
 const StaticMode = () => (
-  <Menu secondary style={intends.noMarginBottom} size='tiny'>
+  <Menu secondary style={composeStyles(intends.noMarginBottom, container.bordered)} size='tiny'>
     <Menu.Item style={intends.noRightPadding}>
       <Icon circular name='plus' />
       <Icon circular name='search' />

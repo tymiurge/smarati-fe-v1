@@ -5,17 +5,18 @@ import Toolbar from './Toolbar'
 import List from './_List'
 import { layouting } from 'components'
 import PropTypes from 'prop-types'
+import { intends } from 'styles'
 
 const Main = props => (
   <layouting.HeightColumn
     height={props.height}
     header={(
-      <Container style={{marginTop: 0, backgroundColor: 'rgba(0,0,0,.05)'}}>
+      <Container style={{marginTop: 0, paddingTop: '5px'}}>
         <Toolbar />
       </Container>
     )}
     main={(
-      <Container style={{marginTop: 0}}>
+      <Container style={intends.noMarginTop}>
         <List {...props} />
       </Container> 
     )}

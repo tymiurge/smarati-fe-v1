@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Message, Segment, Icon } from 'semantic-ui-react'
-import PropTypes from 'prop-types'
+import { Button, Form, Grid, Segment, Icon } from 'semantic-ui-react'
+//import PropTypes from 'prop-types'
 import { controls, widjets, layouting } from 'components'
-import { validation } from 'utils'
-import { Redirect } from 'react-router-dom'
+//import { validation } from 'utils'
+//import { Redirect } from 'react-router-dom'
 
 class ProgramRun extends React.Component {
 

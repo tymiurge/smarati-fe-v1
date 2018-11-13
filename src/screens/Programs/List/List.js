@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, Icon } from 'semantic-ui-react'
 import MicroBarChart from 'react-micro-bar-chart'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
 
 class List extends React.Component {
 

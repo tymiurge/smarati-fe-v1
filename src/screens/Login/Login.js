@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Message, Segment, Icon } from 'semantic-ui-react'
-import PropTypes from 'prop-types'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+//import PropTypes from 'prop-types'
 import { controls } from 'components'
 import { validation } from 'utils'
 import { Redirect } from 'react-router-dom'

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Cards, Wizard, Programs } from './screens'
+import { Cards, Wizard, Programs, ProgramRun } from './screens'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
@@ -11,6 +11,7 @@ class App extends Component {
           <Route exact path="/wizard" component={Wizard} />
           <Route path="/cards" component={Cards} />
           <Route path="/programs" component={Programs} />
+          <Route path="/programRun" component={ProgramRun} />
         </Switch>
       </BrowserRouter>
     )

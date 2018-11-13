@@ -1,17 +1,7 @@
 import React from 'react'
 import { Segment } from 'semantic-ui-react'
 import { container, composeStyles } from 'styles'
-
-const localStyles = {
-  
-  cardContr: {
-    padding: '4px 8px', width: '200px', marginTop: '0', marginBottom: '0'
-  },
-  cardFlexContr: {
-    height: '55px'  
-  }
-  
-}
+import localStyles from './_styles'
 
 const _Skin = props => { 
   const _skinStyle = props.skinStyle || {}

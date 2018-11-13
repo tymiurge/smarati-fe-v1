@@ -4,6 +4,7 @@ import Skin from './_Skin.js'
 import PropTypes from 'prop-types'
 import { container, composeStyles } from 'styles'
 import { Header, Label } from 'semantic-ui-react'
+import localStyles from './_styles'
 
 const propTypes = {
   value: PropTypes.string.isRequired,
@@ -15,15 +16,6 @@ const propTypes = {
 
 const defaultProps = {
   skinStyle: {}
-}
-
-const localStyles = {
-  cardDetails: {
-    marginLeft: '8px'
-  },
-  tagsContr: {
-    width: '157px'
-  },
 }
 
 const FrontDetails = props => (

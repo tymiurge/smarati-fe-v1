@@ -1,15 +1,19 @@
 import React from 'react'
 import { CardFace, CardBox } from './CardItem'
+import { container, composeStyles } from 'styles'
 
 const localStyles = {
   cardIntends: {
     marginBottom: '5px', 
     marginRight: '5px'
-  }  
+  },
+  cardsContainer: {
+    padding: '5px'
+  }
 }
 
 export default props => (
-  <div style={{display: 'flex', flexWrap: 'wrap', padding: '5px'}}>
+  <div style={composeStyles(container.wrappedFlexRow, localStyles.cardsContainer)}>
     {
       props.list.map(item => {
         if (item.type === 'box') {

@@ -22,6 +22,7 @@ export const bordered = {
   borderRadius: '.28571429rem'
 }
 
-export const wrappedFlex = {
-
+export const wrappedFlexRow = {
+  display: 'flex', 
+  flexWrap: 'wrap'
 }

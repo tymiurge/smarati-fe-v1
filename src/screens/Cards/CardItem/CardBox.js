@@ -4,20 +4,7 @@ import Skin from './_Skin'
 import PropTypes from 'prop-types'
 import { container, composeStyles } from 'styles'
 import { Header, Label } from 'semantic-ui-react'
-
-const localStyles = {
-  iconBox: {width: '35px', height: '35px'},
-  icon: {marginTop: '3px'},
-  skinStyle: {
-    backgroundColor: '#f7f1e3'
-  },
-  cardDetails: {
-    marginLeft: '8px'
-  },
-  tagsContr: {
-    width: '157px'
-  },
-}
+import localStyles from './_styles'
 
 const Details = props => (
   <div style={composeStyles(container.flexColumn, localStyles.cardDetails)}>

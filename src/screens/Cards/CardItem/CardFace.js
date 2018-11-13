@@ -7,7 +7,8 @@ import { Header, Label } from 'semantic-ui-react'
 import localStyles from './_styles'
 
 const propTypes = {
-  value: PropTypes.string.isRequired,
+  front: PropTypes.string.isRequired,
+  back: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
   progress: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
@@ -20,7 +21,9 @@ const defaultProps = {
 
 const FrontDetails = props => (
   <div style={composeStyles(container.flexColumn, localStyles.cardDetails)}>
-    <div><Header as='h5'>{props.front}</Header></div>
+    <div><Header as='h5'>
+      {props.flipped ? props.back : props.front}
+    </Header></div>
     <div 
       style={composeStyles(container.cutText, localStyles.tagsContr)}
     >

@@ -20,7 +20,7 @@ const Details = props => (
 )
 
 const propTypes = {
-  value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
   skinStyle: PropTypes.object

@@ -2,7 +2,7 @@ import React from 'react'
 import { widjets } from 'components'
 import { Container } from 'semantic-ui-react'
 import Toolbar from './Toolbar'
-import List from './_List'
+import List from './List'
 import { layouting } from 'components'
 import PropTypes from 'prop-types'
 import { intends } from 'styles'
@@ -27,7 +27,8 @@ class Cards extends React.Component {
 
   static propTypes = {
     list: PropTypes.array.isRequired,
-    onLoad: PropTypes.func.isRequired
+    onLoad: PropTypes.func.isRequired,
+    onCardFlip: PropTypes.func.isRequired
   }
 
   componentDidMount() {

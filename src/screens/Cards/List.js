@@ -22,7 +22,7 @@ export default props => (
             <CardBox 
               key={item.id}
               skinStyle={localStyles.cardIntends} 
-              onClick={() => alert('box ' + item.id)}
+              onClick={() => props.onCardFlip(item)}
               {...item.data}  
             />          
           )
@@ -31,7 +31,7 @@ export default props => (
           <CardFace
             key={item.id}
             skinStyle={localStyles.cardIntends} 
-            onClick={() => alert('box ' + item.id)}
+            onClick={() => props.onCardFlip(item)}
             {...item.data}  
           />
         )

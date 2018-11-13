@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { controls } from 'components'
 import { validation } from 'utils'
 import { Redirect } from 'react-router-dom'
@@ -12,13 +12,13 @@ class Login extends React.Component {
     password: '',
     valid: true
   }
-/*
+
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     confirmed: PropTypes.bool.isRequired,
     errors: PropTypes.array
   }
-*/
+
   static defaultProps = {
     errors: []
   }
@@ -37,7 +37,7 @@ class Login extends React.Component {
 
   render() {
     if (this.props.confirmed) {
-      return (<Redirect to='/profile' />)
+      return (<Redirect to='/cards' />)
     }
     return (
       <div className='login-form'>
@@ -67,7 +67,7 @@ class Login extends React.Component {
                     icon='mail'
                     fieldBinding='login'
                     validators={[validation.strIsNotEmpty, validation.strIsEmail]}
-                    onChange={(value, field, valid = true) => this.onFieldChange(value, field)} 
+                    onChange={(value, field, valid = true) => this.onFieldChange(value, field, valid)} 
                   />
                 </Form.Field>
                 <Form.Field>
@@ -77,7 +77,7 @@ class Login extends React.Component {
                     icon='lock'
                     fiedBinding='password'
                     validators={[validation.strIsNotEmpty]}
-                    onChange={(value, field, valid = true) => this.onFieldChange(value, field)} 
+                    onChange={(value, field, valid = true) => this.onFieldChange(value, field, valid)} 
                   />
                 </Form.Field>
                 {
@@ -92,7 +92,7 @@ class Login extends React.Component {
                   fluid 
                   size='large'
                   content='Login'
-                  //onClick={() => this.onSubmit()}
+                  onClick={() => this.onSubmit()}
                 />
               </Segment>
             </Form>

@@ -1,8 +1,8 @@
 import Login from './Login'
-//import { connect } from 'react-redux'
-//import { $loginUser } from 'reducers/login'
+import { connect } from 'react-redux'
+import { $loginUser } from 'reducers/login'
 
-/*
+
 const mapStateToProps = state => ({
   confirmed: state.login.confirmed,
   errors: state.login.errors
@@ -16,6 +16,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login)
-*/
-
-export default Login

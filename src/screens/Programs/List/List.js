@@ -24,7 +24,7 @@ class List extends React.Component {
         </Table.Header>
         <Table.Body>
           {
-            this.props.items.map((item, idx) => (
+            this.props.programs.map((item, idx) => (
               <Table.Row key={idx}>
                 <Table.Cell>
                   <Icon color='blue' name='arrow alternate circle right' />

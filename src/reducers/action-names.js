@@ -15,4 +15,6 @@ export const MULTI_CARDS_ADDED      = 'MULTI_CARDS_ADDED'
 
 // ======================= programs =================================
 export const PROGRAMS_FETCHED       = 'PROGRAMS_FETCHED'
+// ========================== tags ==================================
+export const TAGS_FETCHED           = 'TAGS_FETCHED'
 

@@ -114,3 +114,20 @@ export const fetchPrograms = () => delay(3).then(
     }    
   })
 )
+
+export const fetchTags = () => delay(3).then(
+  () => ({
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      list: [...cards.reduce(
+        (acc, curr) => {
+          curr.data.tags.forEach(tag => acc.add(tag))
+          return acc
+        },
+        new Set()
+      )]
+    }      
+  })
+)

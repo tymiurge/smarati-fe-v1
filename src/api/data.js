@@ -6,7 +6,7 @@ export const cards = [
     data: {
       front: 'allignment',
       back: 'вирівнювання',
-      tags: ['en'],
+      tags: ['en', 'action'],
       progress: 3
     },
     

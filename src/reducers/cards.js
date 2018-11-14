@@ -21,6 +21,7 @@ const list = (state = [], action) => {
         : item    
       )
     case CARD_ADDED: return [...state, action.card]
+    case MULTI_CARDS_ADDED: return [...state, ...action.cards]
     default: return state
   }
 }
@@ -41,6 +42,7 @@ const addRequestFullfilled = (state = false, action) => {
   switch (action.type) {
     case CARD_ADDED: return true
     case CARD_BOX_ADDED: return true
+    case MULTI_CARDS_ADDED: return true
     case SCREEN_LOADED: return false
     default: return state
   }
@@ -109,6 +111,17 @@ export const $addCardBox = data => (dispatch, getState) => {
       })
     })
     .catch(err => console.log('err=' + err))
+}
+
+export const $addMultiCards = data => (dispatch, getState) => {
+  api
+    .addMultiCards(arrays.last(getState().cards.boxHistory).id, data)
+    .then(result => {
+      dispatch({
+        type: MULTI_CARDS_ADDED,
+        cards: result.data.cards
+      })
+    })
 }
 
 export const $triggerCardsScreenLoading = () => dispatch => dispatch({

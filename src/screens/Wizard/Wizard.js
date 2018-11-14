@@ -65,6 +65,8 @@ class Wizard extends React.Component {
                     onConfirm={({type, data}) => {
                       if (type === 'card') {
                         this.props.onCardAdd(data)
+                      } else {
+                        this.props.onMultiCardsAdd(data)
                       }
                     }}
                   />

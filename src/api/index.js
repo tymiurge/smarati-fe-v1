@@ -81,3 +81,24 @@ export const addCardBox = (parentId, boxData) => delay(8).then(
     }    
   })
 )
+
+export const addMultiCards = (parentId, data) => delay(7).then(
+  () => ({
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      cards: data.cards.map(card => ({
+        id: uniqid(),
+        parent: parentId,
+        type: 'card',
+        data: {
+          front: card.front,
+          back: card.back,
+          tags: data.tags,
+          progress: 0
+        }  
+      }))
+    }    
+  })
+)

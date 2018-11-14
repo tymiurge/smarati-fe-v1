@@ -1,6 +1,6 @@
 import Wizard from './Wizard'
 import { connect } from 'react-redux'
-import { $addCard, $addCardBox } from 'reducers/cards'
+import { $addCard, $addCardBox, $addMultiCards } from 'reducers/cards'
 
 const mapStateToProps = state => ({
   requestFullfilled: state.cards.addRequestFullfilled
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onCardAdd: data => dispatch($addCard(data)),
-  onCardBoxAdd: data => dispatch($addCardBox(data))
+  onCardBoxAdd: data => dispatch($addCardBox(data)),
+  onMultiCardsAdd: data => dispatch($addMultiCards(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wizard)

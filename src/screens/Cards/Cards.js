@@ -6,13 +6,14 @@ import List from './List'
 import { layouting } from 'components'
 import PropTypes from 'prop-types'
 import { intends } from 'styles'
+import { withRouter } from 'react-router-dom'
 
 const Main = props => (
   <layouting.HeightColumn
     height={props.height}
     header={(
       <Container style={{marginTop: 0, paddingTop: '5px'}}>
-        <Toolbar {...props}/>
+        <Toolbar {...props} />
       </Container>
     )}
     main={(
@@ -43,7 +44,12 @@ class Cards extends React.Component {
     return (
       <layouting.FullSizePage
         header={<widjets.Header selectedIdx={0} />}
-        main={<Main {...this.props}/>}
+        main={
+          <Main 
+            {...this.props}
+            onPlusClick={() => this.props.history.push('/wizard')}
+          />
+        }
         leftAsideWidth='0%'
         rightAsideWidth='0%'
         mainScrollable={false}
@@ -52,4 +58,4 @@ class Cards extends React.Component {
   }
 }
 
-export default Cards
+export default withRouter(Cards)

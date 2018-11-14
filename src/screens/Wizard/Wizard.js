@@ -2,6 +2,7 @@ import React from 'react'
 import { Message, Segment, Container } from 'semantic-ui-react'
 import { CardWizard, BoxWizard } from './CardWizard'
 import { controls, layouting, widjets } from 'components'
+import { withRouter } from 'react-router-dom'
 
 class Wizard extends React.Component {
 
@@ -18,7 +19,8 @@ class Wizard extends React.Component {
       <layouting.FullSizePage
         header={
           <widjets.TitledHeader 
-            title='Cards Creation Wizard' 
+            title='Cards Creation Wizard'
+            onBackNavigation={() =>this.props.history.push('/cards') }
           />
         }
         main={(
@@ -64,4 +66,4 @@ class Wizard extends React.Component {
   }
 }
 
-export default Wizard
+export default withRouter(Wizard)

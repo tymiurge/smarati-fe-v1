@@ -1,11 +1,11 @@
 import React from 'react'
 import { Menu, Icon, Container } from 'semantic-ui-react'
-//import { withRouter } from 'react-router-dom'
 
-const TitledHeader = ({title, history}) => (
+
+const TitledHeader = ({title, onBackNavigation}) => (
   <Menu inverted color='blue' borderless style={{marginBottom: 0, borderRadius: 0}}>
     <Container>
-      <Menu.Item style={{marginRight: '0', padding: '0'}} /*onClick={ () => history.push('/challenges') }*/>
+      <Menu.Item style={{marginRight: '0', padding: '0'}} onClick={ () => onBackNavigation() } >
         <Icon name='arrow alternate circle left outline' size='big' />
       </Menu.Item>
 
@@ -17,4 +17,4 @@ const TitledHeader = ({title, history}) => (
 )
 
 export default TitledHeader
-//export default withRouter(TitledHeader)
+

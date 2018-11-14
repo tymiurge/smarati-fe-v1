@@ -6,7 +6,7 @@ import { intends, container, composeStyles } from 'styles'
 const StaticMode = props => (
   <Menu secondary style={composeStyles(intends.noMarginBottom, container.bordered)} size='tiny'>
     <Menu.Item style={intends.noRightPadding}>
-      <Icon circular name='plus' />
+      <Icon circular name='plus' className={'cursor-pointer'} onClick={() => props.onPlusClick()}/>
       <Icon circular name='search' />
     </Menu.Item>
     <Menu.Item style={intends.noLeft}>

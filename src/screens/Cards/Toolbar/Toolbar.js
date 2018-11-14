@@ -10,7 +10,7 @@ class Toolbar extends React.Component {
   render() {
     return (
       <div>
-        { this.state.mode === 'static' && <StaticMode />}
+        { this.state.mode === 'static' && <StaticMode {...this.props} />}
       </div>
     )
   }

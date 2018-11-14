@@ -12,7 +12,7 @@ const Main = props => (
     height={props.height}
     header={(
       <Container style={{marginTop: 0, paddingTop: '5px'}}>
-        <Toolbar />
+        <Toolbar {...props}/>
       </Container>
     )}
     main={(
@@ -30,6 +30,8 @@ class Cards extends React.Component {
     onLoad: PropTypes.func.isRequired,
     onCardFlip: PropTypes.func.isRequired,
     onBoxEnter: PropTypes.func.isRequired,
+    boxHistory: PropTypes.array.isRequired,
+    onHistoryNav: PropTypes.func.isRequired
   }
 
   componentDidMount() {

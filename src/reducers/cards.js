@@ -1,10 +1,12 @@
 import {
   CARDS_FETCHED,
   CARD_FLIPPED,
-  CARD_BOX_ENTRANCE
+  CARD_BOX_ENTRANCE,
+  BOX_HISTORY_NAVIGATED
 } from './action-names'
 import * as api from './../api'
 import { combineReducers } from 'redux'
+import { arrays } from 'utils'
 
 const list = (state = [], action) => {
   switch (action.type) {
@@ -18,21 +20,26 @@ const list = (state = [], action) => {
   }
 }
 
-const currentBox = (state = null, action) => {
-  switch(action.type) {
-    case CARD_BOX_ENTRANCE: return action.id
+const HISTORY_ENTRY = {id: null, title: 'All Cards'}
+
+const boxHistory = (state = [HISTORY_ENTRY], action) => {
+  switch (action.type) {
+    case CARD_BOX_ENTRANCE: 
+      return [...state, {id: action.id, title: action.boxName}]
+    case BOX_HISTORY_NAVIGATED: 
+      return state.slice(0, state.findIndex(item => item.id === action.id) - 1)
     default: return state
   }
 }
 
 export default combineReducers({
   list,
-  currentBox
+  boxHistory
 })
 
 export const $fetchCards = () => (dispatch, getState) => {
   api
-    .fetchCards(getState().cards.currentBox)
+    .fetchCards(arrays.last(getState().cards.boxHistory).id)
     .then(result => {
       dispatch({
         type: CARDS_FETCHED,
@@ -53,6 +60,14 @@ export const $flipCard = card => dispatch => {
 export const $enterBox = box => dispatch => {
   dispatch({
     type: CARD_BOX_ENTRANCE,
-    id: box.id
+    id: box.id,
+    boxName: box.data.name
   })
 } 
+
+export const $navigateBoxHistory = historyItem => dispatch => {
+  dispatch({
+    type: BOX_HISTORY_NAVIGATED,
+    id: historyItem.id
+  })
+}

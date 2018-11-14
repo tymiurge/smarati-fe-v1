@@ -3,7 +3,7 @@ import { Menu, Icon } from 'semantic-ui-react'
 import { controls } from 'components'
 import { intends, container, composeStyles } from 'styles'
 
-const StaticMode = () => (
+const StaticMode = props => (
   <Menu secondary style={composeStyles(intends.noMarginBottom, container.bordered)} size='tiny'>
     <Menu.Item style={intends.noRightPadding}>
       <Icon circular name='plus' />
@@ -12,9 +12,9 @@ const StaticMode = () => (
     <Menu.Item style={intends.noLeft}>
       <controls.ViewsPath 
         views={
-          [{title: 'All Cards'}, {title: 'English'}, {title: 'Waiting for Godot'}]
+          props.boxHistory
         } 
-        onItemClick={item => alert(item.title)}
+        onItemClick={item => props.onHistoryNav(item)}
       />
     </Menu.Item>
     <Menu.Menu position='right'>

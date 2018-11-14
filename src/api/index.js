@@ -1,5 +1,6 @@
 import {
-  cards
+  cards,
+  programs
 } from './data'
 import uniqid from 'uniqid'
 
@@ -99,6 +100,17 @@ export const addMultiCards = (parentId, data) => delay(7).then(
           progress: 0
         }  
       }))
+    }    
+  })
+)
+
+export const fetchPrograms = () => delay(3).then(
+  () => ({
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      list: programs
     }    
   })
 )

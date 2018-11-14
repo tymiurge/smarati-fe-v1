@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * May be used in case if a component should display a certain view under a certain 
+ * condition.
+ * There is only one requirement to the views - each of them should call onModeSwitch(key)
+ * to amke ViewsSwitcher switch to view with the passed 'key'
+ */
 class ViewsSwitcher extends React.Component {
 
   static propTypes = {

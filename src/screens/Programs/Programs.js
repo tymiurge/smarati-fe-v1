@@ -3,6 +3,7 @@ import { layouting, widjets } from 'components'
 import { Container } from 'semantic-ui-react'
 import Toolbar from './Toolbar'
 import List from './List'
+import PropTypes from 'prop-types'
 
 const programs = [
   {
@@ -63,6 +64,14 @@ const programs = [
 
 class Programs extends React.Component {
 
+  static propTypes = {
+    programs: PropTypes.array.isRequired,
+    onLoad: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    this.props.onLoad()
+  }
 
   render() {
     return (
@@ -71,7 +80,7 @@ class Programs extends React.Component {
         main={
           <Container style={{marginTop: 0, paddingTop: '5px'}}>
             <Toolbar />
-            <List items={programs}/>
+            <List items={this.props.programs}/>
           </Container>
         }
         leftAsideWidth='0%'

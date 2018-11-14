@@ -18,13 +18,20 @@ const list = (state = [], action) => {
   }
 }
 
+const currentBox = (state = null, action) => {
+  switch(action.type) {
+    default: return state
+  }
+}
+
 export default combineReducers({
-  list
+  list,
+  currentBox
 })
 
-export const $fetchCards = () => dispatch => {
+export const $fetchCards = () => (dispatch, getState) => {
   api
-    .fetchCards()
+    .fetchCards(getState().cards.currentBox)
     .then(result => {
       dispatch({
         type: CARDS_FETCHED,

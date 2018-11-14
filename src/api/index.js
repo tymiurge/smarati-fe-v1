@@ -29,13 +29,13 @@ export const loginUser = data => delay(10).then(
   }
 )
 
-export const fetchCards = data => delay(19).then(
+export const fetchCards = parentId => delay(19).then(
   () => ({
     status: 'ok',
     code: 200,
     messages: [],
     data: {
-      list: cards
+      list: cards.filter(card => card.parent === parentId)
     }
   })
 )

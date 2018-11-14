@@ -28,7 +28,8 @@ class Cards extends React.Component {
   static propTypes = {
     list: PropTypes.array.isRequired,
     onLoad: PropTypes.func.isRequired,
-    onCardFlip: PropTypes.func.isRequired
+    onCardFlip: PropTypes.func.isRequired,
+    onBoxEnter: PropTypes.func.isRequired,
   }
 
   componentDidMount() {

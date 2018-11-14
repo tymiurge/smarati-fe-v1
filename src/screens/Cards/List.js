@@ -22,7 +22,7 @@ export default props => (
             <CardBox 
               key={item.id}
               skinStyle={localStyles.cardIntends} 
-              onClick={() => props.onCardFlip(item)}
+              onClick={() => props.onBoxEnter(item)}
               {...item.data}  
             />          
           )

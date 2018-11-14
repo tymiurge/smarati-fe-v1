@@ -1,7 +1,7 @@
 import {
   CARDS_FETCHED,
   CARD_FLIPPED,
-  CARD_BOX_FLIPPED
+  CARD_BOX_ENTRANCE
 } from './action-names'
 import * as api from './../api'
 import { combineReducers } from 'redux'
@@ -20,6 +20,7 @@ const list = (state = [], action) => {
 
 const currentBox = (state = null, action) => {
   switch(action.type) {
+    case CARD_BOX_ENTRANCE: return action.id
     default: return state
   }
 }
@@ -40,27 +41,18 @@ export const $fetchCards = () => (dispatch, getState) => {
     })
 }
 
-const flipCard = (item, dispatch) => {
-  const oldFlipState = item.data.flipped === undefined ? false : item.data.flipped
+export const $flipCard = card => dispatch => {
+  const oldFlipState = card.data.flipped === undefined ? false : card.data.flipped
   dispatch({
     type: CARD_FLIPPED,
-    id: item.id,
+    id: card.id,
     toState: !oldFlipState
   })
 }
 
-const flipCardBox = item => {
-
-}
-
-export const $flipCard = card => dispatch => {
-  switch (card.type) {
-    case 'card': 
-      flipCard(card, dispatch)
-      break
-    case 'box': 
-      flipCardBox(card, dispatch)
-      break
-    default: throw new Error(`${card.type} is not supported`)
-  }
-}
+export const $enterBox = box => dispatch => {
+  dispatch({
+    type: CARD_BOX_ENTRANCE,
+    id: box.id
+  })
+} 

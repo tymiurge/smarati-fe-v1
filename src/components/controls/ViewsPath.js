@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const propTypes = {
   views: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    onItemClick: PropTypes.func.isRequired
+    onItemClick: PropTypes.func
   }))
 }
 

@@ -19,7 +19,7 @@ const StaticMode = () => (
     </Menu.Item>
     <Menu.Menu position='right'>
       <Menu.Item>
-        <Icon circular name='pencil' color='pencil'/>
+        <Icon circular name='pencil' color='red'/>
       </Menu.Item>
     </Menu.Menu>
   </Menu>

@@ -9,7 +9,7 @@ export default ({progress, width}) => {
         data={
           [...new Array(14)].map((_, key) => {
             if (key % 2 === 0) {
-              return { title: key, value: 20, color: progress <= key ? '#20bf6b' : '#d1d8e0'}
+              return { title: key, value: 20, color: key / 2 < progress ? '#20bf6b' : '#d1d8e0'}
             }
             return { title: key, value: 2, color: '#fff' }
           }

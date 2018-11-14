@@ -3,8 +3,17 @@ import { Message, Segment, Container } from 'semantic-ui-react'
 import { CardWizard, BoxWizard } from './CardWizard'
 import { controls, layouting, widjets } from 'components'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 
 class Wizard extends React.Component {
+
+  static propTypes = {
+    onCardBoxAdd: PropTypes.func.isRequired,
+    onCardAdd: PropTypes.func.isRequired,
+    onMultiCardsAdd: PropTypes.func.isRequired,
+    requestFullfilled: PropTypes.bool.isRequired
+  }
 
   state = {
     mode: undefined
@@ -15,6 +24,9 @@ class Wizard extends React.Component {
   }
 
   render() {
+    if (this.props.requestFullfilled) {
+      return (<Redirect to='/cards' />)
+    }
     return (
       <layouting.FullSizePage
         header={
@@ -43,13 +55,17 @@ class Wizard extends React.Component {
               <Segment attached='bottom'>
                 {
                   this.state.mode === 'box' &&
-                  <BoxWizard onConfirm={({type, data}) => console.log(`type = ${type}, name = ${data.name}, tags = ${data.tags.join()}`)}/>
+                  <BoxWizard
+                    onConfirm={({type, data}) => console.log(`type = ${type}, name = ${data.name}, tags = ${data.tags.join()}`)}
+                  />
                 }
                 {
                   this.state.mode === 'card' &&
                   <CardWizard
                     onConfirm={({type, data}) => {
-                      console.log(`type = ${type}`)
+                      if (type === 'card') {
+                        this.props.onCardAdd(data)
+                      }
                     }}
                   />
                 }

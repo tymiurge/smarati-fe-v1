@@ -18,7 +18,7 @@ class SingleCardWizard extends React.Component {
   onConfirm = () => {
     if (this.state.valid) {
       this.props.onConfirm({
-        type: 'singleCard',
+        type: 'card',
         data: this.state
       })
     }

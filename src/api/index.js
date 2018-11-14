@@ -1,6 +1,7 @@
 import {
   cards
 } from './data'
+import uniqid from 'uniqid'
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -37,5 +38,46 @@ export const fetchCards = parentId => delay(19).then(
     data: {
       list: cards.filter(card => card.parent === parentId)
     }
+  })
+)
+
+export const addCard = (parentId, cardData) => delay(8).then(
+  () => { 
+    return {
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      card: {
+        id: uniqid(),
+        parent: parentId,
+        type: 'card',
+        data: {
+          front: cardData.front,
+          back: cardData.back,
+          tags: cardData.tags,
+          progress: 0
+        }
+      }
+    }
+  }}
+)
+
+export const addCardBox = (boxData, parentId) => delay(8).then(
+  () => ({
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      box: {
+        id: uniqid(),
+        parent: parentId,
+        type: 'box',
+        data: {
+          name: boxData.name,
+          tags: boxData.tags
+        }
+      }
+    }    
   })
 )

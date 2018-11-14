@@ -1,6 +1,12 @@
 import Cards from './Cards'
 import { connect } from 'react-redux'
-import { $fetchCards, $flipCard, $enterBox, $navigateBoxHistory } from 'reducers/cards'
+import { 
+  $fetchCards, 
+  $flipCard, 
+  $enterBox, 
+  $navigateBoxHistory,
+  $triggerCardsScreenLoading
+} from 'reducers/cards'
 
 const stateToProps = state => ({
   list: state.cards.list,
@@ -8,7 +14,10 @@ const stateToProps = state => ({
 })
 
 const dispatchToProps = dispatch => ({
-  onLoad: () => dispatch($fetchCards()),
+  onLoad: () => {
+    dispatch($fetchCards())
+    dispatch($triggerCardsScreenLoading())
+  },
   onCardFlip: item => dispatch($flipCard(item)),
   onBoxEnter: box => {
     dispatch($enterBox(box))

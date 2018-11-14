@@ -2,7 +2,11 @@ import {
   CARDS_FETCHED,
   CARD_FLIPPED,
   CARD_BOX_ENTRANCE,
-  BOX_HISTORY_NAVIGATED
+  BOX_HISTORY_NAVIGATED,
+  CARD_ADDED,
+  CARD_BOX_ADDED,
+  MULTI_CARDS_ADDED,
+  SCREEN_LOADED
 } from './action-names'
 import * as api from './../api'
 import { combineReducers } from 'redux'
@@ -16,6 +20,7 @@ const list = (state = [], action) => {
         ? {...item, data: {...item.data, flipped: action.toState}}
         : item    
       )
+    case CARD_ADDED: return [...state, action.card]
     default: return state
   }
 }
@@ -32,9 +37,18 @@ const boxHistory = (state = [HISTORY_ENTRY], action) => {
   }
 }
 
+const addRequestFullfilled = (state = false, action) => {
+  switch (action.type) {
+    case CARD_ADDED: return true
+    case SCREEN_LOADED: return false
+    default: return state
+  }
+}
+
 export default combineReducers({
   list,
-  boxHistory
+  boxHistory,
+  addRequestFullfilled
 })
 
 export const $fetchCards = () => (dispatch, getState) => {
@@ -71,3 +85,32 @@ export const $navigateBoxHistory = historyItem => dispatch => {
     id: historyItem.id
   })
 }
+
+export const $addCard = data => (dispatch, getState) => {
+  const parentId = arrays.last(getState().cards.boxHistory).id
+  api
+    .addCard(parentId, data)
+    .then(result => {
+      dispatch({
+        type: CARD_ADDED,
+        card: result.data.card
+      })
+    })
+}
+
+export const $addCardBox = data => (dispatch, getState) => {
+  api
+    .addCardBox(arrays.last(getState().cards.boxHistory).id, data)
+    .then(result => {
+      dispatch({
+        type: CARD_BOX_ADDED,
+        box: result.data.box
+      })
+    })
+    .catch(err => console.log('err=' + err))
+}
+
+export const $triggerCardsScreenLoading = () => dispatch => dispatch({
+  type: SCREEN_LOADED,
+  name: 'CARDS'
+})

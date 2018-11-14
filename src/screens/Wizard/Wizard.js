@@ -56,7 +56,7 @@ class Wizard extends React.Component {
                 {
                   this.state.mode === 'box' &&
                   <BoxWizard
-                    onConfirm={({type, data}) => console.log(`type = ${type}, name = ${data.name}, tags = ${data.tags.join()}`)}
+                    onConfirm={data => this.props.onCardBoxAdd(data)}
                   />
                 }
                 {

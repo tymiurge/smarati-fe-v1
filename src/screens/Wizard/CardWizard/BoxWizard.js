@@ -27,12 +27,7 @@ class BoxWizard extends React.Component {
 
   onConfirm = () => {
     if (this.state.valid) {
-      this.props.onConfirm(
-        {
-          type: 'box',
-          data: this.state
-        }
-      )
+      this.props.onConfirm(this.state)
     }
   }
 

@@ -63,7 +63,7 @@ export const addCard = (parentId, cardData) => delay(8).then(
   }}
 )
 
-export const addCardBox = (boxData, parentId) => delay(8).then(
+export const addCardBox = (parentId, boxData) => delay(8).then(
   () => ({
     status: 'ok',
     code: 200,

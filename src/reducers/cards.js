@@ -40,6 +40,7 @@ const boxHistory = (state = [HISTORY_ENTRY], action) => {
 const addRequestFullfilled = (state = false, action) => {
   switch (action.type) {
     case CARD_ADDED: return true
+    case CARD_BOX_ADDED: return true
     case SCREEN_LOADED: return false
     default: return state
   }

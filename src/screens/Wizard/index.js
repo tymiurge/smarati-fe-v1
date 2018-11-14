@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onCardAdd: data => dispatch($addCard(data))
+  onCardAdd: data => dispatch($addCard(data)),
+  onCardBoxAdd: data => dispatch($addCardBox(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wizard)

@@ -10,6 +10,7 @@ class Programs extends React.Component {
   static propTypes = {
     programs: PropTypes.array.isRequired,
     tags: PropTypes.array.isRequired,
+    boxes: PropTypes.array.isRequired,
     onLoad: PropTypes.func.isRequired
   }
 

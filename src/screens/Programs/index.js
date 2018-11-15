@@ -1,17 +1,18 @@
 import Programs from './Programs'
 import { connect } from 'react-redux'
-import { $fetchPrograms } from 'reducers/programs'
-import { $fetchTags } from 'reducers/tags'
+import { $fetchPrograms, $fetchTags, $fetchBoxes } from 'reducers/programs'
 
 const mapStateToProps = state => ({
   programs: state.programs.list,
-  tags: state.tags.list
+  tags: state.programs.tags,
+  boxes: state.programs.boxes
 })
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
     dispatch($fetchPrograms())
     dispatch($fetchTags())
+    dispatch($fetchBoxes())
   }
 })
 

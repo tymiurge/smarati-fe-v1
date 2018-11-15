@@ -131,3 +131,14 @@ export const fetchTags = () => delay(3).then(
     }      
   })
 )
+
+export const fetchBoxes = () => delay(3).then(
+  () => ({
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      list: cards.filter(card => card.type === 'box')
+    }
+  })
+)

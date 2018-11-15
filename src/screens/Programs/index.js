@@ -1,6 +1,6 @@
 import Programs from './Programs'
 import { connect } from 'react-redux'
-import { $fetchPrograms, $fetchTags, $fetchBoxes } from 'reducers/programs'
+import { $fetchPrograms, $fetchTags, $fetchBoxes, $addProgram } from 'reducers/programs'
 
 const mapStateToProps = state => ({
   programs: state.programs.list,
@@ -13,7 +13,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch($fetchPrograms())
     dispatch($fetchTags())
     dispatch($fetchBoxes())
-  }
+  },
+  onProgramAdd: data => dispatch($addProgram(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Programs)

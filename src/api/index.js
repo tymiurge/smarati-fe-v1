@@ -142,3 +142,14 @@ export const fetchBoxes = () => delay(3).then(
     }
   })
 )
+
+export const addProgram = data => delay(3).then(
+  () => ({
+    status: 'ok',
+    code: 200,
+    messages: [],
+    data: {
+      program: {...data, id: uniqid()}
+    }
+  })
+)

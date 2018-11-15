@@ -11,7 +11,8 @@ class Programs extends React.Component {
     programs: PropTypes.array.isRequired,
     tags: PropTypes.array.isRequired,
     boxes: PropTypes.array.isRequired,
-    onLoad: PropTypes.func.isRequired
+    onLoad: PropTypes.func.isRequired,
+    onProgramAdd: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -28,7 +29,7 @@ class Programs extends React.Component {
         header={<widjets.Header selectedIdx={1}/>}
         main={
           <Container style={{marginTop: 0, paddingTop: '5px'}}>
-            <Toolbar {...this.props} onProgramAdd={this.onProgramAdd}/>
+            <Toolbar {...this.props} />
             <List {...this.props} />
           </Container>
         }

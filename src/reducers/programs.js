@@ -1,7 +1,8 @@
 import {
   PROGRAMS_FETCHED,
   TAGS_FETCHED,
-  BOXES_FETCHED
+  BOXES_FETCHED,
+  PROGRAM_ADDED
 } from './action-names'
 import * as api from './../api'
 import { combineReducers } from 'redux'
@@ -9,6 +10,7 @@ import { combineReducers } from 'redux'
 const list = (state = [], action) => {
   switch (action.type) {
     case PROGRAMS_FETCHED: return action.list
+    case PROGRAM_ADDED: return [...state, action.program]
     default: return state
   }
 }
@@ -62,6 +64,17 @@ export const $fetchBoxes = () => dispatch => {
       dispatch({
         type: BOXES_FETCHED,
         list: result.data.list
+      })
+    })
+}
+
+export const $addProgram = data => dispatch => {
+  api
+    .addProgram(data)
+    .then(result => {
+      dispatch({
+        type: PROGRAM_ADDED,
+        program: result.data.program
       })
     })
 }

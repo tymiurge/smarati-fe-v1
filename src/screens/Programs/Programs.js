@@ -18,13 +18,17 @@ class Programs extends React.Component {
     this.props.onLoad()
   }
 
+  onProgramAdd = data => {
+    console.log(data)
+  }
+
   render() {
     return (
       <layouting.FullSizePage
         header={<widjets.Header selectedIdx={1}/>}
         main={
           <Container style={{marginTop: 0, paddingTop: '5px'}}>
-            <Toolbar {...this.props} />
+            <Toolbar {...this.props} onProgramAdd={this.onProgramAdd}/>
             <List {...this.props} />
           </Container>
         }

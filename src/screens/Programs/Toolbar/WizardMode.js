@@ -1,7 +1,7 @@
 import React from 'react'
 import { container, intends, composeStyles } from 'styles'
-import { Form } from 'semantic-ui-react'
-import { layouting } from 'components'
+import { Form, Segment } from 'semantic-ui-react'
+import { controls } from 'components'
 
 const groupOptions = [
   { key: 'byFolders', text: 'By Folders', value: 'byFolders' },
@@ -12,20 +12,34 @@ const groupOptions = [
 class WizardMode extends React.Component {
 
   state = {
-    itemsOptions: []
+    itemsOptions: [],
+    groupItems: [],
+    name: ''
   }
 
   setItemsContent = mode => {
+    let options = []
     if (mode === 'byTags') {
-      const tagsOptions = this.props.tags.map(tag => ({key: tag, text: tag, value: tag}))
-      this.setState({...this.state, itemsOptions: tagsOptions})
+      options = this.props.tags.map(tag => ({key: tag, text: tag, value: tag}))
+    } else {
+      options = this.props.boxes.map(box => ({key: box.id, text: box.data.name, value: box.id}))
     }
+    this.setState({...this.state, itemsOptions: options, groupItems: []})
+  }
+
+  onGroupItemsChange = data => {
+    this.setState({...this.state, groupItems: data.value})
   }
 
   render() {
     return (
-      <div style={composeStyles(container.bordered, intends.appBigPadding)}>
+      <Segment>
         <Form>
+          <Form.Input 
+            label='Program Name' placeholder='Name...' 
+            value={this.state.name}
+            onChange={e => this.setState({...this.state, name: e.target.value})}
+          />
           <Form.Group widths='equal'>
             <Form.Select 
               fluid label='Group by' placeholder='Select group' 
@@ -34,11 +48,16 @@ class WizardMode extends React.Component {
             />
             <Form.Select 
               disabled={this.state.itemsOptions.length === 0} fluid label='Items' options={this.state.itemsOptions} placeholder='Select Items' 
+              value={this.state.groupItems}
+              onChange={(_, data) => this.onGroupItemsChange(data)}
               multiple selection
             />
           </Form.Group>
         </Form>
-      </div>
+        <controls.YesNoButtons
+        />
+
+      </Segment>
     )
   }
 }

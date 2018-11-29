@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Container } from 'semantic-ui-react'
 
 const Header = ({selectedIdx}) => (
-  <Menu borderless style={{marginBottom: 0}}>
+  <Menu borderless style={{marginBottom: 0, borderRadius: '0'}} inverted>
     <Container>
     {
       [
@@ -12,9 +12,14 @@ const Header = ({selectedIdx}) => (
         <Menu.Item
           key={item.name} {...item}
           active={idx === selectedIdx}
+          header
         />
       ))
     }
+    <Menu.Menu position='right'>
+      <Menu.Item header>Welcome, Tymur Labas</Menu.Item>
+      <Menu.Item icon='user' />
+    </Menu.Menu>
     </Container>
   </Menu>      
 )

@@ -12,6 +12,18 @@ const TitledHeader = ({title, onBackNavigation}) => (
       <Menu.Item header style={{fontSize: '1.2rem'}}>
         { title }
       </Menu.Item>
+
+      <Menu.Menu position='right' >
+        <Menu.Item header>
+          Total cards: 100
+        </Menu.Item>
+        <Menu.Item header>
+          Learnt: 13
+        </Menu.Item>
+        <Menu.Item header>
+          In Learning queue: 24
+        </Menu.Item>
+      </Menu.Menu>
     </Container>
   </Menu>
 )

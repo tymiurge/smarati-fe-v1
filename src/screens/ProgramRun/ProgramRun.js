@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Form, Grid, Segment, Icon } from 'semantic-ui-react'
+import { Button, Form, Grid, Segment, Icon, Header, Container, Checkbox } from 'semantic-ui-react'
 //import PropTypes from 'prop-types'
 import { controls, widjets, layouting } from 'components'
+import Toolbar from './Toolbar'
 //import { validation } from 'utils'
 //import { Redirect } from 'react-router-dom'
 
@@ -24,7 +25,12 @@ class ProgramRun extends React.Component {
             color: white !important;
           }
         `}</style>
-        <widjets.TitledHeader title='All words' />
+        <Toolbar title='Spanish 100 common words' />
+
+        <Container style={{marginTop: '5px'}}>
+          <Checkbox toggle label={<label>Show back before next</label>} />
+          <Checkbox style={{marginLeft: '10px'}} toggle label={<label>Hint wizard at failing</label>} />
+        </Container>
         <Grid textAlign='center' style={{ height: '100%', marginTop: '-150px' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Form size='large'>
@@ -34,7 +40,9 @@ class ProgramRun extends React.Component {
                 </Segment>
               <Segment>
                 <div style={{height:'150px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <div>this is a card content</div>
+                  <div>
+                    <Header as='h2'>saber</Header>
+                  </div>
                 </div>
               </Segment>
               </Segment.Group>
@@ -43,10 +51,10 @@ class ProgramRun extends React.Component {
             <Segment>
                 <layouting.FillNFullInRow>
                   <Button circular icon='chain' style={{marginRight: '5px'}}/>
-                  <layouting.FullNFillInRow>
-                    <Button color='blue' fluid ><Icon name='check'/>I know it!</Button>
-                    <Button circular icon='cancel' style={{marginLeft: '5px'}} color='red' />
-                  </layouting.FullNFillInRow>
+                  <div>
+                    <Button color='blue'><Icon name='check'/>I know it!</Button>
+                    <Button color='red'><Icon name='cancel' /> I don't...</Button>
+                  </div>
                 </layouting.FillNFullInRow>
                 
                 
